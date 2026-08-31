@@ -65,7 +65,7 @@
 //   return (
 //     <Link href={tutorHref} className="block group">
 //       <div
-//         className="relative bg-[#FFFDF7] rounded-[20px] border-[2.5px] border-[#2E4F5E] overflow-hidden h-full transition-all duration-200 hover:-translate-y-1"
+//         className="relative bg-[#FFFDF7] rounded-[20px] border-[2.5px] border-[#2E4F5E] overflow-hidden h-full w-full min-w-0 transition-all duration-200 hover:-translate-y-1"
 //         style={{ boxShadow: '0 0 0 0 #2E4F5E' }}
 //         onMouseEnter={e => (e.currentTarget.style.boxShadow = '8px 8px 0 0 #2E4F5E')}
 //         onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 0 0 0 #2E4F5E')}
@@ -119,7 +119,7 @@
 
 //             {/* Name + rating */}
 //             <div className="flex-1 min-w-0">
-//               <h3 className="text-[17px] font-black text-[#2E4F5E] leading-snug mb-1 truncate group-hover:text-[#E05C42] transition-colors">
+//               <h3 className="text-[17px] font-black text-[#2E4F5E] leading-snug mb-1 truncate group-hover:text-[#C43D24] transition-colors">
 //                 {tutor.name}
 //               </h3>
 //               {tutor.rating ? (
@@ -185,7 +185,7 @@
 //               <span className="text-[15px]" aria-hidden="true">💬</span>
 //               <span className={`text-[11px] font-black ${responseTime.color}`}>{responseTime.text}</span>
 //             </div>
-//             <div className="flex items-center gap-1 text-[#E05C42] font-black text-[13px] transition-all duration-150 group-hover:gap-2">
+//             <div className="flex items-center gap-1 text-[#C43D24] font-black text-[13px] transition-all duration-150 group-hover:gap-2">
 //               <span>View Profile</span>
 //               <svg className="w-[15px] h-[15px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
 //                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6"/>
@@ -196,7 +196,7 @@
 //           {/* Urgency — only experienced tutors */}
 //           {tutor.experience >= 5 && (
 //             <div className="text-center mt-2">
-//               <span className="text-[10px] font-black text-[#E05C42] bg-[#E05C4215] px-3 py-[3px] rounded-full">
+//               <span className="text-[10px] font-black text-[#C43D24] bg-[#E05C4215] px-3 py-[3px] rounded-full">
 //                 ⏳ Limited weekly slots available
 //               </span>
 //             </div>
@@ -206,13 +206,6 @@
 //     </Link>
 //   )
 // }
-
-
-
-
-
-
-
 
 
 
@@ -279,9 +272,12 @@ export default function TutorCard({ tutor, featured = false }: TutorCardProps) {
   const tutorHref = `/tutors/${(tutor as any).slug || tutor._id}`
 
   return (
-    <Link href={tutorHref} className="block group">
+    <Link
+      href={tutorHref}
+      className="block group w-full sm:max-w-[420px] mx-auto justify-self-center"
+    >
       <div
-        className="relative bg-[#FFFDF7] rounded-[20px] border-[2.5px] border-[#2E4F5E] overflow-hidden h-full transition-all duration-200 hover:-translate-y-1"
+        className="relative bg-[#FFFDF7] rounded-[20px] border-[2.5px] border-[#2E4F5E] overflow-hidden h-full w-full min-w-0 transition-all duration-200 hover:-translate-y-1"
         style={{ boxShadow: '0 0 0 0 #2E4F5E' }}
         onMouseEnter={e => (e.currentTarget.style.boxShadow = '8px 8px 0 0 #2E4F5E')}
         onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 0 0 0 #2E4F5E')}

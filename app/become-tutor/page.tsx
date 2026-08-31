@@ -2,7 +2,6 @@
 
 
 
-
 // 'use client'
 
 // import { useState } from 'react'
@@ -58,7 +57,7 @@
 //   return (
 //     <div className={`flex items-center gap-2 mb-3 ${center ? 'justify-center' : ''}`}>
 //       <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${light ? 'bg-[#E8C86A]' : 'bg-[#E05C42]'}`} />
-//       <span className={`text-[0.62rem] font-black uppercase tracking-[0.22em] ${light ? 'text-[#E8C86A]' : 'text-[#E05C42]'}`}>{text}</span>
+//       <span className={`text-[0.62rem] font-black uppercase tracking-[0.22em] ${light ? 'text-[#E8C86A]' : 'text-[#C43D24]'}`}>{text}</span>
 //       <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${light ? 'bg-[#E8C86A]' : 'bg-[#E05C42]'}`} />
 //     </div>
 //   )
@@ -166,7 +165,7 @@
 //             Thank you for applying to join Avenfield Tutors network. Our team will review your application shortly.
 //           </p>
 //           <div className="bg-[#FFFDF7] rounded-xl p-4 mb-6 text-left border-2 border-[#E8C86A] shadow-[2px_2px_0_0_#c9ab4a]">
-//             <p className="text-[0.65rem] font-black text-[#E05C42] uppercase tracking-[0.2em] mb-3">What happens next?</p>
+//             <p className="text-[0.65rem] font-black text-[#C43D24] uppercase tracking-[0.2em] mb-3">What happens next?</p>
 //             {[
 //               { icon: '📋', t: 'Our team reviews your application within 24 to 48 hours' },
 //               { icon: '💬', t: 'You will receive a WhatsApp verification message' },
@@ -178,7 +177,7 @@
 //               </div>
 //             ))}
 //           </div>
-//           <Link href="/" className="inline-flex items-center gap-1.5 text-[0.85rem] font-black text-[#E05C42] hover:text-[#c44d36] transition-colors">
+//           <Link href="/" className="inline-flex items-center gap-1.5 text-[0.85rem] font-black text-[#C43D24] hover:text-[#c44d36] transition-colors">
 //             ← Back to homepage
 //           </Link>
 //         </div>
@@ -288,12 +287,12 @@
 //               {/* Row 1: Name + WhatsApp */}
 //               <div className="grid sm:grid-cols-2 gap-4">
 //                 <div>
-//                   <label className={lbl}>Full Name <span className="text-[#E05C42]">*</span></label>
+//                   <label className={lbl}>Full Name <span className="text-[#C43D24]">*</span></label>
 //                   <input required className={inp} placeholder="e.g. Ahmad Hassan"
 //                     value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} />
 //                 </div>
 //                 <div>
-//                   <label className={lbl}>WhatsApp Number <span className="text-[#E05C42]">*</span></label>
+//                   <label className={lbl}>WhatsApp Number <span className="text-[#C43D24]">*</span></label>
 //                   <input required className={inp} placeholder="+92 300 0000000"
 //                     value={form.whatsapp} onChange={e => setForm(f => ({ ...f, whatsapp: e.target.value }))} />
 //                 </div>
@@ -302,7 +301,7 @@
 //               {/* Subjects (grouped accordion selector) */}
 //               <div>
 //                 <label className={lbl}>
-//                   Subjects You Teach <span className="text-[#E05C42]">*</span>
+//                   Subjects You Teach <span className="text-[#C43D24]">*</span>
 //                   {form.subjects.length > 0 && (
 //                     <span className="ml-2 bg-[#E8C86A] text-[#2E4F5E] px-2 py-0.5 rounded-full normal-case tracking-normal font-black text-[0.6rem]">
 //                       {form.subjects.length} selected
@@ -348,13 +347,13 @@
 //               {/* Row 2: Experience + Mode */}
 //               <div className="grid sm:grid-cols-2 gap-4">
 //                 <div>
-//                   <label className={lbl}>Years of Experience <span className="text-[#E05C42]">*</span></label>
+//                   <label className={lbl}>Years of Experience <span className="text-[#C43D24]">*</span></label>
 //                   <input required type="number" min={0} max={50} className={inp} placeholder="e.g. 5"
 //                     value={form.experience || ''}
 //                     onChange={e => setForm(f => ({ ...f, experience: parseInt(e.target.value) || 0 }))} />
 //                 </div>
 //                 <div>
-//                   <label className={lbl}>Teaching Mode <span className="text-[#E05C42]">*</span></label>
+//                   <label className={lbl}>Teaching Mode <span className="text-[#C43D24]">*</span></label>
 //                   <select required className={inp}
 //                     value={form.mode}
 //                     onChange={e => setForm(f => ({ ...f, mode: e.target.value as IApplication['mode'] }))}>
@@ -368,12 +367,12 @@
 //               {/* Row 3: City + Country */}
 //               <div className="grid sm:grid-cols-2 gap-4">
 //                 <div>
-//                   <label className={lbl}>City <span className="text-[#E05C42]">*</span></label>
+//                   <label className={lbl}>City <span className="text-[#C43D24]">*</span></label>
 //                   <input required className={inp} placeholder="e.g. Islamabad"
 //                     value={form.city} onChange={e => setForm(f => ({ ...f, city: e.target.value }))} />
 //                 </div>
 //                 <div>
-//                   <label className={lbl}>Country <span className="text-[#E05C42]">*</span></label>
+//                   <label className={lbl}>Country <span className="text-[#C43D24]">*</span></label>
 //                   <input required className={inp} placeholder="e.g. Pakistan"
 //                     value={form.country} onChange={e => setForm(f => ({ ...f, country: e.target.value }))} />
 //                 </div>
@@ -381,14 +380,14 @@
 
 //               {/* Education */}
 //               <div>
-//                 <label className={lbl}>Education / Qualification <span className="text-[#E05C42]">*</span></label>
+//                 <label className={lbl}>Education / Qualification <span className="text-[#C43D24]">*</span></label>
 //                 <input required className={inp} placeholder="e.g. BS Computer Science, NUST"
 //                   value={form.education} onChange={e => setForm(f => ({ ...f, education: e.target.value }))} />
 //               </div>
 
 //               {/* Bio */}
 //               <div>
-//                 <label className={lbl}>About Yourself <span className="text-[#E05C42]">*</span></label>
+//                 <label className={lbl}>About Yourself <span className="text-[#C43D24]">*</span></label>
 //                 <textarea required rows={4}
 //                   className={`${inp} resize-none`}
 //                   placeholder='Example: "I help O Level Mathematics students improve grades through concept based learning and weekly practice sessions."'
@@ -399,7 +398,7 @@
 
 //               {/* Error state */}
 //               {status === 'error' && (
-//                 <div className="flex items-center gap-2.5 bg-[#E05C42]/10 border-2 border-[#E05C42] text-[#E05C42] text-[0.82rem] font-black px-4 py-3 rounded-xl">
+//                 <div className="flex items-center gap-2.5 bg-[#E05C42]/10 border-2 border-[#E05C42] text-[#C43D24] text-[0.82rem] font-black px-4 py-3 rounded-xl">
 //                   <span>⚠️</span> Something went wrong. Please try again.
 //                 </div>
 //               )}
@@ -580,6 +579,27 @@ const emptyForm: IApplication = {
   city: '', country: '', whatsapp: '', bio: '', education: '', mode: 'both',
 }
 
+// Fixed taxonomy, not free text — keeps this field filterable/searchable
+// later instead of accumulating inconsistent spellings the way city/country
+// free-text fields have.
+const SPECIAL_NEEDS_OPTIONS = [
+  'Autism Spectrum Disorder (ASD)',
+  'Attention-Deficit/Hyperactivity Disorder (ADHD)',
+  'Dyslexia – difficulty with reading',
+  'Dysgraphia – difficulty with writing',
+  'Dyscalculia – difficulty with mathematics',
+  'Intellectual Disability (ID)',
+  'Speech and Language Disorders',
+  'Hearing Impairment',
+  'Visual Impairment',
+  'Physical/Motor Disabilities',
+  'Specific Learning Disorder (SLD)',
+  'Developmental Delay',
+  'Emotional and Behavioral Disorders',
+  'Down Syndrome',
+  'Cerebral Palsy',
+]
+
 // Reusable components (matching home page)
 function Eyebrow({ text, light = false, center = false }: { text: string; light?: boolean; center?: boolean }) {
   return (
@@ -656,6 +676,17 @@ export default function BecomeTutorPage() {
   const [form, setForm] = useState<IApplication>(emptyForm)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
+  // Kept as separate state (not part of the IApplication-typed `form` object)
+  // so this new field doesn't require touching the shared types file to compile.
+  // The apply API route already accepts and saves `specialNeedsExperience`
+  // independently of the rest of the form body.
+  const [specialNeeds, setSpecialNeeds] = useState<string[]>([])
+  const [specialNeedsOpen, setSpecialNeedsOpen] = useState(false)
+
+  function toggleSpecialNeed(s: string) {
+    setSpecialNeeds(prev => prev.includes(s) ? prev.filter(x => x !== s) : [...prev, s])
+  }
+
   function toggleSubject(s: string) {
     setForm(f => ({
       ...f,
@@ -671,11 +702,12 @@ export default function BecomeTutorPage() {
       const res = await fetch('/api/tutors/apply', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, subject: form.subjects[0] }),
+        body: JSON.stringify({ ...form, subject: form.subjects[0], specialNeedsExperience: specialNeeds }),
       })
       if (!res.ok) throw new Error()
       setStatus('success')
       setForm(emptyForm)
+      setSpecialNeeds([])
     } catch {
       setStatus('error')
     }
@@ -922,6 +954,57 @@ export default function BecomeTutorPage() {
                   value={form.bio}
                   onChange={e => setForm(f => ({ ...f, bio: e.target.value }))} />
                 <p className="text-[0.62rem] font-semibold text-[#7da8b8] mt-1.5">Minimum 100 characters recommended helps students choose you</p>
+              </div>
+
+              {/* Special needs / learning differences experience — optional multi-select dropdown */}
+              <div className="relative">
+                <label className={lbl}>Experience Teaching Special Needs Students <span className="text-[0.65rem] normal-case font-bold text-[#7da8b8] tracking-normal">(optional)</span></label>
+                <button
+                  type="button"
+                  onClick={() => setSpecialNeedsOpen(o => !o)}
+                  aria-expanded={specialNeedsOpen}
+                  aria-haspopup="listbox"
+                  className={`${inp} flex items-center justify-between text-left cursor-pointer`}
+                >
+                  <span className={specialNeeds.length ? '' : 'text-[#b0c4cc] font-medium'}>
+                    {specialNeeds.length > 0 ? `${specialNeeds.length} selected` : 'Select any that apply'}
+                  </span>
+                  <svg className={`w-4 h-4 text-[#7da8b8] flex-shrink-0 transition-transform ${specialNeedsOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+
+                {specialNeedsOpen && (
+                  <div className="absolute z-20 mt-1.5 w-full bg-white rounded-xl border-2 border-[#2E4F5E] shadow-[4px_4px_0_0_#2E4F5E] max-h-64 overflow-y-auto p-2">
+                    {SPECIAL_NEEDS_OPTIONS.map(option => (
+                      <label key={option} className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-[#FFFDF7] cursor-pointer text-[0.82rem] font-semibold text-[#2E4F5E]">
+                        <input
+                          type="checkbox"
+                          checked={specialNeeds.includes(option)}
+                          onChange={() => toggleSpecialNeed(option)}
+                          className="w-4 h-4 accent-[#E05C42] flex-shrink-0"
+                        />
+                        {option}
+                      </label>
+                    ))}
+                  </div>
+                )}
+
+                {specialNeeds.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mt-2">
+                    {specialNeeds.map(s => (
+                      <span key={s} className="inline-flex items-center gap-1.5 text-[0.68rem] font-black px-2.5 py-1 rounded-full bg-[#E8C86A]/25 text-[#2E4F5E] border border-[#E8C86A]">
+                        {s}
+                        <button type="button" onClick={() => toggleSpecialNeed(s)} aria-label={`Remove ${s}`} className="hover:text-[#C43D24]">
+                          <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                          </svg>
+                        </button>
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <p className="text-[0.62rem] font-semibold text-[#7da8b8] mt-1.5">Helps us match you with students who specifically need this experience.</p>
               </div>
 
               {/* Error state */}
