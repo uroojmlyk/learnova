@@ -1,7 +1,3 @@
-
-
-
-
 // 'use client'
 
 // import { useState } from 'react'
@@ -830,10 +826,10 @@ export default function BecomeTutorPage() {
           <div className="text-center mb-8">
             <Eyebrow text="Your Application" center />
             <h2 className="text-[1.6rem] sm:text-[2rem] font-black text-[#2E4F5E] mb-2">
-              Tell Us About Yourself
+              Apply to Become an Avenfield Tutor
             </h2>
             <p className="text-[#4a6a78] text-[0.85rem] font-semibold">
-              Fill in the details below our team reviews every application personally.
+              Fill in your teaching details below our team reviews every tutor application personally.
             </p>
           </div>
 
@@ -956,39 +952,73 @@ export default function BecomeTutorPage() {
                 <p className="text-[0.62rem] font-semibold text-[#7da8b8] mt-1.5">Minimum 100 characters recommended helps students choose you</p>
               </div>
 
-              {/* Special needs / learning differences experience — optional multi-select dropdown */}
-              <div className="relative">
+              {/* Special needs / learning differences experience — optional, matches the
+                  Subjects accordion pattern above for visual consistency instead of a
+                  floating dropdown */}
+              <div>
                 <label className={lbl}>Experience Teaching Special Needs Students <span className="text-[0.65rem] normal-case font-bold text-[#7da8b8] tracking-normal">(optional)</span></label>
-                <button
-                  type="button"
-                  onClick={() => setSpecialNeedsOpen(o => !o)}
-                  aria-expanded={specialNeedsOpen}
-                  aria-haspopup="listbox"
-                  className={`${inp} flex items-center justify-between text-left cursor-pointer`}
-                >
-                  <span className={specialNeeds.length ? '' : 'text-[#b0c4cc] font-medium'}>
-                    {specialNeeds.length > 0 ? `${specialNeeds.length} selected` : 'Select any that apply'}
-                  </span>
-                  <svg className={`w-4 h-4 text-[#7da8b8] flex-shrink-0 transition-transform ${specialNeedsOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/>
-                  </svg>
-                </button>
 
-                {specialNeedsOpen && (
-                  <div className="absolute z-20 mt-1.5 w-full bg-white rounded-xl border-2 border-[#2E4F5E] shadow-[4px_4px_0_0_#2E4F5E] max-h-64 overflow-y-auto p-2">
-                    {SPECIAL_NEEDS_OPTIONS.map(option => (
-                      <label key={option} className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-[#FFFDF7] cursor-pointer text-[0.82rem] font-semibold text-[#2E4F5E]">
-                        <input
-                          type="checkbox"
-                          checked={specialNeeds.includes(option)}
-                          onChange={() => toggleSpecialNeed(option)}
-                          className="w-4 h-4 accent-[#E05C42] flex-shrink-0"
-                        />
-                        {option}
-                      </label>
-                    ))}
-                  </div>
-                )}
+                <div className="mt-2 rounded-xl border-2 border-[#D4D0C5] overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setSpecialNeedsOpen(o => !o)}
+                    aria-expanded={specialNeedsOpen}
+                    className="w-full flex items-center justify-between px-4 py-3 bg-[#FFFDF7] hover:bg-[#F5F2E8] transition-colors cursor-pointer"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-base">🧩</span>
+                      <span className="text-[0.8rem] font-black text-[#2E4F5E]">Special Needs Categories</span>
+                      {specialNeeds.length > 0 && (
+                        <span className="bg-[#E8C86A] text-[#2E4F5E] text-[0.58rem] font-black px-1.5 py-0.5 rounded-full border border-[#2E4F5E]">
+                          {specialNeeds.length} selected
+                        </span>
+                      )}
+                    </div>
+                    <svg className={`w-3.5 h-3.5 text-[#4a6a78] transition-transform duration-200 flex-shrink-0 ${specialNeedsOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  {specialNeedsOpen && (
+                    <div className="bg-white border-t-2 border-[#D4D0C5]">
+                      <div className="flex items-center justify-between px-4 py-2.5 bg-[#FFFDF7] border-b border-[#E8E4D8]">
+                        <span className="text-[0.68rem] font-black text-[#7da8b8] uppercase tracking-wider">Select any that apply</span>
+                        <button
+                          type="button"
+                          onClick={() => setSpecialNeedsOpen(false)}
+                          aria-label="Close special needs list"
+                          className="w-6 h-6 flex items-center justify-center rounded-lg text-[#7da8b8] hover:text-[#C43D24] hover:bg-[#E05C42]/10 transition-colors"
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                          </svg>
+                        </button>
+                      </div>
+                      <div className="max-h-64 overflow-y-auto px-3 py-2">
+                        {SPECIAL_NEEDS_OPTIONS.map(option => (
+                          <label key={option} className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-[#FFFDF7] cursor-pointer text-[0.82rem] font-semibold text-[#2E4F5E]">
+                            <input
+                              type="checkbox"
+                              checked={specialNeeds.includes(option)}
+                              onChange={() => toggleSpecialNeed(option)}
+                              className="w-4 h-4 accent-[#E05C42] flex-shrink-0"
+                            />
+                            {option}
+                          </label>
+                        ))}
+                      </div>
+                      <div className="px-4 py-2.5 border-t border-[#E8E4D8]">
+                        <button
+                          type="button"
+                          onClick={() => setSpecialNeedsOpen(false)}
+                          className="w-full py-2 bg-[#2E4F5E] text-white text-[0.75rem] font-black rounded-lg hover:bg-[#26414d] transition-colors"
+                        >
+                          Done
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
 
                 {specialNeeds.length > 0 && (
                   <div className="flex flex-wrap gap-1.5 mt-2">
@@ -1030,7 +1060,7 @@ export default function BecomeTutorPage() {
       </section>
 
       {/* SECTION 5 - WHAT HAPPENS NEXT (teal bg) */}
-      <section className="bg-[#3A9E8F] py-12 sm:py-16 px-4 sm:px-8 border-t-2 border-[#2E4F5E]">
+      <section className="bg-[#2f8074] py-12 sm:py-16 px-4 sm:px-8 border-t-2 border-[#2E4F5E]">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-8">
             <Eyebrow text="After You Apply" light center />
@@ -1054,7 +1084,7 @@ export default function BecomeTutorPage() {
               </div>
             ))}
           </div>
-          <p className="text-center text-[0.62rem] font-black text-[#c5e8e3] mt-7">
+          <p className="text-center text-[0.62rem] font-black text-white mt-7">
             Simple application · Manual review · Fast approval
           </p>
         </div>
