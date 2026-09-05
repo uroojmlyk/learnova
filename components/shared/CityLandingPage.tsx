@@ -1,3 +1,9 @@
+
+
+
+
+
+
 // import Link from 'next/link'
 
 // interface CityPageProps {
@@ -6,6 +12,10 @@
 //     [category: string]: string[]
 //   }
 //   nearbyCity?: string
+//   // Genuinely city-specific paragraphs (not shared boilerplate) — each city
+//   // page file supplies its own real local content here instead of every
+//   // city rendering the same generic text with just the name swapped.
+//   cityIntro?: string[]
 // }
 
 // const WHATSAPP_NUMBER = '923095154253'
@@ -81,7 +91,7 @@
 //   return labels[key] || key
 // }
 
-// export default function CityLandingPage({ city, areas, nearbyCity }: CityPageProps) {
+// export default function CityLandingPage({ city, areas, nearbyCity, cityIntro }: CityPageProps) {
 //   const whatsappURL = buildWhatsAppURL(city)
 //   const totalAreas = getTotalAreas(areas)
 
@@ -119,11 +129,11 @@
 //   const faqList = [
 //     {
 //       q: `Which areas of ${city} do your home tutors cover?`,
-//       a: `Our verified tutors provide home tuition across ${Object.values(areas).flat().slice(0, 8).join(', ')} and many other areas in ${city}. If your specific area isn't listed, <a href="${whatsappURL}" target="_blank" rel="noopener noreferrer" class="text-[#E05C42] hover:underline font-black">message us on WhatsApp</a> and we'll confirm availability.`,
+//       a: `Our verified tutors provide home tuition across ${Object.values(areas).flat().slice(0, 8).join(', ')} and many other areas in ${city}. If your specific area isn't listed, <a href="${whatsappURL}" target="_blank" rel="noopener noreferrer" class="text-[#C43D24] hover:underline font-black">message us on WhatsApp</a> and we'll confirm availability.`,
 //     },
 //     {
 //       q: `How much does a home tutor in ${city} cost?`,
-//       a: `Home tutor rates in ${city} vary based on the subject, academic level, and tutor experience. We offer competitive pricing with complete transparency. <a href="${whatsappURL}" target="_blank" rel="noopener noreferrer" class="text-[#E05C42] hover:underline font-black">Contact us on WhatsApp</a> with your requirements for a detailed quote with no hidden charges.`,
+//       a: `Home tutor rates in ${city} vary based on the subject, academic level, and tutor experience. We offer competitive pricing with complete transparency. <a href="${whatsappURL}" target="_blank" rel="noopener noreferrer" class="text-[#C43D24] hover:underline font-black">Contact us on WhatsApp</a> with your requirements for a detailed quote with no hidden charges.`,
 //     },
 //     {
 //       q: `Can I get a free trial before committing?`,
@@ -137,7 +147,7 @@
 //       ? [
 //           {
 //             q: `Do you also provide home tutors in ${nearbyCity}?`,
-//             a: `Yes, we serve both ${city} and ${nearbyCity} for home tuition. Check out our <a href="/home-tutor-${nearbyCity.toLowerCase()}" class="text-[#E05C42] hover:underline font-black">home tutors in ${nearbyCity}</a> page for more details. We also offer <a href="/tutors" class="text-[#E05C42] hover:underline font-black">online tutoring</a> for students anywhere in Pakistan and worldwide.`,
+//             a: `Yes, we serve both ${city} and ${nearbyCity} for home tuition. Check out our <a href="/home-tutor-${nearbyCity.toLowerCase()}" class="text-[#C43D24] hover:underline font-black">home tutors in ${nearbyCity}</a> page for more details. We also offer <a href="/tutors" class="text-[#C43D24] hover:underline font-black">online tutoring</a> for students anywhere in Pakistan and worldwide.`,
 //           },
 //         ]
 //       : []),
@@ -228,6 +238,21 @@
 
 //       <div className="max-w-5xl mx-auto px-4 sm:px-8 py-10 sm:py-16 space-y-12 sm:space-y-14">
 
+//         {cityIntro && cityIntro.length > 0 && (
+//           <section>
+//             <h2 className="font-black text-[1.2rem] sm:text-[1.4rem] text-[#2E4F5E] mb-4">
+//               Home Tutoring in {city}: What Makes It Different
+//             </h2>
+//             <div className="space-y-3">
+//               {cityIntro.map((para, i) => (
+//                 <p key={i} className="text-[#4a6a78] text-[0.88rem] sm:text-[0.92rem] leading-relaxed font-medium">
+//                   {para}
+//                 </p>
+//               ))}
+//             </div>
+//           </section>
+//         )}
+
 //         {/* ══════════════════════ AREAS COVERED ══════════════════════ */}
 //         <section>
 //           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5">
@@ -277,7 +302,7 @@
 //             <span>📌</span>
 //             <span>
 //               Don&#39;t see your area?{' '}
-//               <a href={whatsappURL} target="_blank" rel="noopener noreferrer" className="text-[#E05C42] hover:underline font-black">
+//               <a href={whatsappURL} target="_blank" rel="noopener noreferrer" className="text-[#C43D24] hover:underline font-black">
 //                 Message us on WhatsApp
 //               </a>{' '}
 //               and we&#39;ll confirm availability.
@@ -395,7 +420,7 @@
 
 //               {/* ─── COMPETITIVE EXAMS ─── */}
 //               <div className="pt-4 border-t-2 border-dashed border-[#E8C86A]/40">
-//                 <p className="text-[0.7rem] font-black text-[#E05C42] uppercase tracking-wider mb-2 flex items-center gap-2">
+//                 <p className="text-[0.7rem] font-black text-[#C43D24] uppercase tracking-wider mb-2 flex items-center gap-2">
 //                   <span>🏛️</span> Competitive Exams
 //                 </p>
 //                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
@@ -406,7 +431,7 @@
 //                     <Link key={item.name} href={item.href}
 //                       className="group flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-2.5 sm:py-3 bg-[#FFFDF7] text-[#2E4F5E] text-[0.76rem] sm:text-[0.82rem] font-bold rounded-xl border-2 border-[#D4D0C5] hover:border-[#E05C42] hover:bg-[#FFFDF7] transition-all no-underline">
 //                       <span className="text-base sm:text-lg flex-shrink-0">{item.icon}</span>
-//                       <span className="group-hover:text-[#E05C42] transition-colors">{item.name}</span>
+//                       <span className="group-hover:text-[#C43D24] transition-colors">{item.name}</span>
 //                     </Link>
 //                   ))}
 //                 </div>
@@ -512,24 +537,24 @@
 //           </h2>
 //           <div className="space-y-4 text-[#4a6a78] text-[0.85rem] sm:text-[0.95rem] leading-[1.75] font-semibold">
 //             <p>
-//               <strong className="text-[#2E4F5E]">Why choose a home tutor in {city}?</strong> Personalised, one-on-one attention is the most effective way to improve academic performance. Our <Link href={`/home-tutor-${city.toLowerCase()}`} className="text-[#E05C42] hover:underline font-black">home tutors in {city}</Link> are carefully selected to match your child's learning style and academic goals. Whether preparing for <Link href={`/tutors?subject=O%20Level&city=${encodeURIComponent(city)}`} className="text-[#E05C42] hover:underline font-black">O Level</Link> exams or aiming for top scores in <Link href={`/tutors?subject=A%20Level&city=${encodeURIComponent(city)}`} className="text-[#E05C42] hover:underline font-black">A Level</Link>, our tutors bring subject expertise and real-world teaching experience.
+//               <strong className="text-[#2E4F5E]">Why choose a home tutor in {city}?</strong> Personalised, one-on-one attention is the most effective way to improve academic performance. Our <Link href={`/home-tutor-${city.toLowerCase()}`} className="text-[#C43D24] hover:underline font-black">home tutors in {city}</Link> are carefully selected to match your child's learning style and academic goals. Whether preparing for <Link href={`/tutors?subject=O%20Level&city=${encodeURIComponent(city)}`} className="text-[#C43D24] hover:underline font-black">O Level</Link> exams or aiming for top scores in <Link href={`/tutors?subject=A%20Level&city=${encodeURIComponent(city)}`} className="text-[#C43D24] hover:underline font-black">A Level</Link>, our tutors bring subject expertise and real-world teaching experience.
 //             </p>
 //             <p>
-//               <strong className="text-[#2E4F5E]">Subjects we cover:</strong> From <Link href={`/tutors?subject=Mathematics&city=${encodeURIComponent(city)}`} className="text-[#E05C42] hover:underline font-black">Mathematics</Link> and <Link href={`/tutors?subject=Physics&city=${encodeURIComponent(city)}`} className="text-[#E05C42] hover:underline font-black">Physics</Link> to <Link href={`/tutors?subject=Chemistry&city=${encodeURIComponent(city)}`} className="text-[#E05C42] hover:underline font-black">Chemistry</Link>, <Link href={`/tutors?subject=Biology&city=${encodeURIComponent(city)}`} className="text-[#E05C42] hover:underline font-black">Biology</Link>, <Link href={`/tutors?subject=English&city=${encodeURIComponent(city)}`} className="text-[#E05C42] hover:underline font-black">English</Link>, <Link href={`/tutors?subject=Computer%20Science&city=${encodeURIComponent(city)}`} className="text-[#E05C42] hover:underline font-black">Computer Science</Link>, and <Link href={`/tutors?subject=Quran%20%26%20Arabic&city=${encodeURIComponent(city)}`} className="text-[#E05C42] hover:underline font-black">Quran &amp; Arabic</Link>, we have expert tutors for every subject. We also specialise in exam preparation for <Link href={`/tutors?subject=IELTS&city=${encodeURIComponent(city)}`} className="text-[#E05C42] hover:underline font-black">IELTS</Link>, <Link href={`/tutors?subject=MDCAT&city=${encodeURIComponent(city)}`} className="text-[#E05C42] hover:underline font-black">MDCAT</Link>, <Link href={`/tutors?subject=CSS%20%2F%20PMS&city=${encodeURIComponent(city)}`} className="text-[#E05C42] hover:underline font-black">CSS</Link>, and <Link href={`/tutors?subject=PPSC%20%2F%20FPSC&city=${encodeURIComponent(city)}`} className="text-[#E05C42] hover:underline font-black">PPSC</Link>.
+//               <strong className="text-[#2E4F5E]">Subjects we cover:</strong> From <Link href={`/tutors?subject=Mathematics&city=${encodeURIComponent(city)}`} className="text-[#C43D24] hover:underline font-black">Mathematics</Link> and <Link href={`/tutors?subject=Physics&city=${encodeURIComponent(city)}`} className="text-[#C43D24] hover:underline font-black">Physics</Link> to <Link href={`/tutors?subject=Chemistry&city=${encodeURIComponent(city)}`} className="text-[#C43D24] hover:underline font-black">Chemistry</Link>, <Link href={`/tutors?subject=Biology&city=${encodeURIComponent(city)}`} className="text-[#C43D24] hover:underline font-black">Biology</Link>, <Link href={`/tutors?subject=English&city=${encodeURIComponent(city)}`} className="text-[#C43D24] hover:underline font-black">English</Link>, <Link href={`/tutors?subject=Computer%20Science&city=${encodeURIComponent(city)}`} className="text-[#C43D24] hover:underline font-black">Computer Science</Link>, and <Link href={`/tutors?subject=Quran%20%26%20Arabic&city=${encodeURIComponent(city)}`} className="text-[#C43D24] hover:underline font-black">Quran &amp; Arabic</Link>, we have expert tutors for every subject. We also specialise in exam preparation for <Link href={`/tutors?subject=IELTS&city=${encodeURIComponent(city)}`} className="text-[#C43D24] hover:underline font-black">IELTS</Link>, <Link href={`/tutors?subject=MDCAT&city=${encodeURIComponent(city)}`} className="text-[#C43D24] hover:underline font-black">MDCAT</Link>, <Link href={`/tutors?subject=CSS%20%2F%20PMS&city=${encodeURIComponent(city)}`} className="text-[#C43D24] hover:underline font-black">CSS</Link>, and <Link href={`/tutors?subject=PPSC%20%2F%20FPSC&city=${encodeURIComponent(city)}`} className="text-[#C43D24] hover:underline font-black">PPSC</Link>.
 //             </p>
 //             <p>
-//               <strong className="text-[#2E4F5E]">Why Avenfield Tutors?</strong> Unlike other platforms, we manually verify every tutor before they join. Our <Link href="/tutors" className="text-[#E05C42] hover:underline font-black">online tutors</Link> and home tutors are experienced, qualified, and passionate about teaching. With <Link href="/tutors" className="text-[#E05C42] hover:underline font-black">online tutoring</Link> available worldwide, we are the trusted choice for families in {city} and beyond.
+//               <strong className="text-[#2E4F5E]">Why Avenfield Tutors?</strong> Unlike other platforms, we manually verify every tutor before they join. Our <Link href="/tutors" className="text-[#C43D24] hover:underline font-black">online tutors</Link> and home tutors are experienced, qualified, and passionate about teaching. With <Link href="/tutors" className="text-[#C43D24] hover:underline font-black">online tutoring</Link> available worldwide, we are the trusted choice for families in {city} and beyond.
 //             </p>
 //             <p>
-//               <strong className="text-[#2E4F5E]">Home tuition vs. online tutoring:</strong> We offer both! If you prefer in-person lessons, our <Link href={`/home-tutor-${city.toLowerCase()}`} className="text-[#E05C42] hover:underline font-black">home tutors in {city}</Link> will travel to your location. If you need flexibility, our <Link href="/tutors" className="text-[#E05C42] hover:underline font-black">online tuition</Link> connects you with expert tutors from anywhere. Many students combine both modes for maximum convenience.
+//               <strong className="text-[#2E4F5E]">Home tuition vs. online tutoring:</strong> We offer both! If you prefer in-person lessons, our <Link href={`/home-tutor-${city.toLowerCase()}`} className="text-[#C43D24] hover:underline font-black">home tutors in {city}</Link> will travel to your location. If you need flexibility, our <Link href="/tutors" className="text-[#C43D24] hover:underline font-black">online tuition</Link> connects you with expert tutors from anywhere. Many students combine both modes for maximum convenience.
 //             </p>
 //             <p>
-//               <strong className="text-[#2E4F5E]">Ready to get started?</strong> Simply <a href={whatsappURL} target="_blank" rel="noopener noreferrer" className="text-[#E05C42] hover:underline font-black">message us on WhatsApp</a> with your subject and level. We&#39;ll match you with a verified tutor in {city} within 24 hours. No long forms, no waiting weeks – start learning today with Avenfield Tutors.
+//               <strong className="text-[#2E4F5E]">Ready to get started?</strong> Simply <a href={whatsappURL} target="_blank" rel="noopener noreferrer" className="text-[#C43D24] hover:underline font-black">message us on WhatsApp</a> with your subject and level. We&#39;ll match you with a verified tutor in {city} within 24 hours. No long forms, no waiting weeks – start learning today with Avenfield Tutors.
 //             </p>
 //             {nearbyCity && (
 //               <p className="text-[0.78rem] sm:text-[0.8rem] text-[#a8c5d0]">
 //                 <span>📌 </span>
-//                 Also serving <Link href={`/home-tutor-${nearbyCity.toLowerCase()}`} className="text-[#E05C42] hover:underline font-black">{nearbyCity}</Link> and other cities across Pakistan.
+//                 Also serving <Link href={`/home-tutor-${nearbyCity.toLowerCase()}`} className="text-[#C43D24] hover:underline font-black">{nearbyCity}</Link> and other cities across Pakistan.
 //               </p>
 //             )}
 //           </div>
@@ -585,6 +610,7 @@
 
 
 
+
 import Link from 'next/link'
 
 interface CityPageProps {
@@ -593,6 +619,16 @@ interface CityPageProps {
     [category: string]: string[]
   }
   nearbyCity?: string
+  // Genuinely city-specific paragraphs (not shared boilerplate) — each city
+  // page file supplies its own real local content here instead of every
+  // city rendering the same generic text with just the name swapped.
+  cityIntro?: string[]
+  // One short, genuinely local line shown right under the hero heading
+  // (e.g. "Serving F-6 to Bahria Town") so the hero itself isn't a pure
+  // name-swap even though the H1 pattern intentionally stays consistent —
+  // "Find Expert Home Tutors in {city}" is the exact phrase families search
+  // for, so that part is deliberately NOT varied for SEO reasons.
+  heroHighlight?: string
 }
 
 const WHATSAPP_NUMBER = '923095154253'
@@ -668,7 +704,7 @@ function getCategoryLabel(key: string): string {
   return labels[key] || key
 }
 
-export default function CityLandingPage({ city, areas, nearbyCity }: CityPageProps) {
+export default function CityLandingPage({ city, areas, nearbyCity, cityIntro, heroHighlight }: CityPageProps) {
   const whatsappURL = buildWhatsAppURL(city)
   const totalAreas = getTotalAreas(areas)
 
@@ -790,6 +826,13 @@ export default function CityLandingPage({ city, areas, nearbyCity }: CityPagePro
             <Link href={`/tutors?subject=MDCAT&city=${encodeURIComponent(city)}`} className="text-[#E8C86A] hover:underline font-black">MDCAT</Link>, and 50+ other subjects.
           </p>
 
+          {heroHighlight && (
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-3.5 py-1.5 mb-6 -mt-2">
+              <span className="text-sm flex-shrink-0">📍</span>
+              <span className="text-[#a8c5d0] text-[0.75rem] sm:text-[0.8rem] font-bold">{heroHighlight}</span>
+            </div>
+          )}
+
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-7">
             {['Free Consultation', '100% Verified Tutors', 'WhatsApp Booking'].map(t => (
               <span key={t} className="flex items-center gap-1.5 text-[#a8c5d0] text-[0.8rem] sm:text-[0.85rem] font-semibold">
@@ -815,6 +858,21 @@ export default function CityLandingPage({ city, areas, nearbyCity }: CityPagePro
 
       <div className="max-w-5xl mx-auto px-4 sm:px-8 py-10 sm:py-16 space-y-12 sm:space-y-14">
 
+        {cityIntro && cityIntro.length > 0 && (
+          <section>
+            <h2 className="font-black text-[1.2rem] sm:text-[1.4rem] text-[#2E4F5E] mb-4">
+              Home Tutoring in {city}: What Makes It Different
+            </h2>
+            <div className="space-y-3">
+              {cityIntro.map((para, i) => (
+                <p key={i} className="text-[#4a6a78] text-[0.88rem] sm:text-[0.92rem] leading-relaxed font-medium">
+                  {para}
+                </p>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* ══════════════════════ AREAS COVERED ══════════════════════ */}
         <section>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5">
@@ -827,7 +885,7 @@ export default function CityLandingPage({ city, areas, nearbyCity }: CityPagePro
                 Our home tutors serve students across these neighborhoods
               </p>
             </div>
-            <span className="text-[0.7rem] font-bold text-[#a8c5d0] bg-white px-3 py-1.5 rounded-full border border-[#D4D0C5] whitespace-nowrap self-start sm:self-auto">
+            <span className="text-[0.7rem] font-bold text-[#4a6a78] bg-white px-3 py-1.5 rounded-full border border-[#D4D0C5] whitespace-nowrap self-start sm:self-auto">
               {totalAreas}+ areas covered
             </span>
           </div>
@@ -838,7 +896,7 @@ export default function CityLandingPage({ city, areas, nearbyCity }: CityPagePro
                 <summary className="flex items-center justify-between gap-3 px-4 sm:px-5 py-3.5 cursor-pointer list-none hover:bg-[#FFFDF7] transition-colors">
                   <span className="text-[0.82rem] sm:text-[0.88rem] font-black text-[#2E4F5E] flex items-center gap-2 min-w-0">
                     <span className="truncate">{getCategoryLabel(category)}</span>
-                    <span className="flex-shrink-0 text-[0.68rem] font-bold text-[#a8c5d0] bg-[#D4D0C5]/30 px-2 py-0.5 rounded-full">
+                    <span className="flex-shrink-0 text-[0.68rem] font-bold text-[#4a6a78] bg-[#D4D0C5]/30 px-2 py-0.5 rounded-full">
                       {areaList.length}
                     </span>
                   </span>
@@ -860,7 +918,7 @@ export default function CityLandingPage({ city, areas, nearbyCity }: CityPagePro
             ))}
           </div>
 
-          <p className="text-[#a8c5d0] text-[0.78rem] sm:text-[0.8rem] font-semibold mt-4 flex items-start gap-1.5">
+          <p className="text-[#4a6a78] text-[0.78rem] sm:text-[0.8rem] font-semibold mt-4 flex items-start gap-1.5">
             <span>📌</span>
             <span>
               Don&#39;t see your area?{' '}
@@ -1000,7 +1058,7 @@ export default function CityLandingPage({ city, areas, nearbyCity }: CityPagePro
               </div>
             </div>
 
-            <p className="text-[#a8c5d0] text-[0.75rem] font-semibold mt-5 text-center">
+            <p className="text-[#4a6a78] text-[0.75rem] font-semibold mt-5 text-center">
               🎓 These pages are designed to help you find specialised tutors for each subject in {city}
             </p>
           </section>
@@ -1114,7 +1172,7 @@ export default function CityLandingPage({ city, areas, nearbyCity }: CityPagePro
               <strong className="text-[#2E4F5E]">Ready to get started?</strong> Simply <a href={whatsappURL} target="_blank" rel="noopener noreferrer" className="text-[#C43D24] hover:underline font-black">message us on WhatsApp</a> with your subject and level. We&#39;ll match you with a verified tutor in {city} within 24 hours. No long forms, no waiting weeks – start learning today with Avenfield Tutors.
             </p>
             {nearbyCity && (
-              <p className="text-[0.78rem] sm:text-[0.8rem] text-[#a8c5d0]">
+              <p className="text-[0.78rem] sm:text-[0.8rem] text-[#4a6a78]">
                 <span>📌 </span>
                 Also serving <Link href={`/home-tutor-${nearbyCity.toLowerCase()}`} className="text-[#C43D24] hover:underline font-black">{nearbyCity}</Link> and other cities across Pakistan.
               </p>

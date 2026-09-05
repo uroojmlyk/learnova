@@ -1,7 +1,9 @@
 
 
+
 // import './globals.css'
 // import type { Metadata } from 'next'
+// import Script from 'next/script'
 // import { Nunito } from 'next/font/google'
 // import Navbar from '@/components/shared/Navbar'
 // import Footer from '@/components/shared/Footer'
@@ -66,15 +68,42 @@
 //   return (
 //     <html lang="en" className={nunito.variable}>
 //       <body className={`${nunito.className} min-h-screen flex flex-col bg-[#FFFDF7]`}>
-//          <StructuredData />
+
+//         {/* Google Tag Manager */}
+//         <Script
+//           id="google-tag-manager"
+//           strategy="afterInteractive"
+//         >
+//           {`
+//             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+//             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+//             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+//             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+//             })(window,document,'script','dataLayer','GTM-P3ZVQLFN');
+//           `}
+//         </Script>
+
+//         <StructuredData />
 //         <Navbar />
 //         <main className="flex-1">{children}</main>
 //         <Footer />
 //         <WhatsAppButton />
+
+//         {/* Google Tag Manager (noscript) */}
+//         <noscript>
+//           <iframe
+//             src="https://www.googletagmanager.com/ns.html?id=GTM-P3ZVQLFN"
+//             height="0"
+//             width="0"
+//             style={{ display: 'none', visibility: 'hidden' }}
+//           />
+//         </noscript>
+
 //       </body>
 //     </html>
 //   )
 // }
+
 
 
 
@@ -149,10 +178,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={nunito.variable}>
       <body className={`${nunito.className} min-h-screen flex flex-col bg-[#FFFDF7]`}>
 
-        {/* Google Tag Manager */}
+        {/* Google Tag Manager — lazyOnload defers this until the browser is
+            idle instead of right at hydration, since PageSpeed Insights
+            measured ~921ms of main-thread time from GTM's own scripts
+            during the critical loading window (this is what was tanking
+            the mobile Performance score and TBT/INP, not the site's own
+            code). Analytics events still fire correctly, just a beat
+            later — an acceptable tradeoff since nothing on the page
+            depends on GTM being ready immediately. */}
         <Script
           id="google-tag-manager"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         >
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
