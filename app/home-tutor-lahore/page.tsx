@@ -1,4 +1,5 @@
 
+
 import type { Metadata } from 'next'
 import CityLandingPage from '@/components/shared/CityLandingPage'
 
@@ -87,5 +88,6 @@ const LAHORE_INTRO = [
 ]
 
 export default function HomeTutorLahorePage() {
-  return <CityLandingPage city="Lahore" areas={LAHORE_AREAS} nearbyCity="Islamabad" cityIntro={LAHORE_INTRO} />
+  return <CityLandingPage city="Lahore" areas={LAHORE_AREAS} nearbyCity="Islamabad" cityIntro={LAHORE_INTRO} heroHighlight="Serving DHA to Gulberg, all nine DHA phases and beyond" />
 }
+ 

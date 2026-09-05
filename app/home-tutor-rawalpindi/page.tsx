@@ -175,11 +175,11 @@ const RAWALPINDI_AREAS = {
 
 // Genuinely Rawalpindi-specific content — not shared boilerplate with Islamabad/Lahore.
 const RAWALPINDI_INTRO = [
-  "Rawalpindi and Islamabad function as one commuting zone but have quite different tutoring needs. Rawalpindi has a much larger share of Punjab Textbook Board (matric/FSc) students than Islamabad, alongside a growing O Level population in areas like Bahria Town, DHA Rawalpindi and Askari housing schemes — so our Rawalpindi tutors are typically comfortable teaching both boards, not just Cambridge.",
+  "Rawalpindi and Islamabad function as one commuting zone but have quite different tutoring needs. Rawalpindi has a much larger share of Punjab Textbook Board (matric/FSc) students than Islamabad, alongside a growing O Level population in areas like Bahria Town, DHA Rawalpindi and Askari housing schemes so our Rawalpindi tutors are typically comfortable teaching both boards, not just Cambridge.",
   "As a garrison city with a large cantonment area (Chaklala, Westridge, Lalazar) and a big concentration of Askari societies, a lot of Rawalpindi families specifically ask for tutors with experience teaching children of army and civil service families who relocate frequently and need to catch up quickly on a new curriculum midway through the year.",
-  "Rawalpindi's older commercial and residential core — Saddar, Committee Chowk, Raja Bazaar, Gawalmandi — has a very different tutor-availability picture than the newer housing societies further out (Bahria Town, DHA), so we deliberately keep a separate pool of tutors willing to travel to each side of the city rather than assuming one tutor covers all of it.",
+  "Rawalpindi's older commercial and residential core Saddar, Committee Chowk, Raja Bazaar, Gawalmandi has a very different tutor-availability picture than the newer housing societies further out (Bahria Town, DHA), so we deliberately keep a separate pool of tutors willing to travel to each side of the city rather than assuming one tutor covers all of it.",
 ]
 
 export default function HomeTutorRawalpindiPage() {
-  return <CityLandingPage city="Rawalpindi" areas={RAWALPINDI_AREAS} nearbyCity="Islamabad" cityIntro={RAWALPINDI_INTRO} />
+  return <CityLandingPage city="Rawalpindi" areas={RAWALPINDI_AREAS} nearbyCity="Islamabad" cityIntro={RAWALPINDI_INTRO} heroHighlight="Serving Cantt to Bahria Town, including all Askari societies" />
 }

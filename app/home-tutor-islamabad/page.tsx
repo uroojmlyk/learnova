@@ -1,5 +1,3 @@
-
-
 import type { Metadata } from 'next'
 import CityLandingPage from '@/components/shared/CityLandingPage'
 
@@ -135,6 +133,12 @@ const ISLAMABAD_AREAS = {
   ],
 }
 
+const ISLAMABAD_INTRO = [
+  "Islamabad's sector-based layout F-6 to F-11, G-6 to G-13, E-7, and the newer societies like Bahria Town, DHA and Gulberg Greens means a family in F-10 and a family in Bahria Town Phase 8 are often a 40-minute drive apart. That's the main reason home tuition is so common here: parents would rather have a qualified tutor travel to their house than lose two hours a day on the school run to an academy across town.",
+  "Islamabad also has one of the highest concentrations of O Level and A Level schools in Pakistan Beaconhouse, Roots, Froebel's, Headstart and OPF campuses are spread across the sectors alongside FBISE-affiliated schools for Matric and FSc students. Our tutors are used to switching between Cambridge (CAIE), Edexcel and the Federal Board syllabus within the same week, which matters more here than in cities with a single dominant board.",
+  "Because Islamabad is home to embassies, international organisations and diplomatic families, we also get regular requests for IB and American curriculum support alongside the usual O/A Level and MDCAT demand something we plan for specifically when matching tutors in this city.",
+]
+
 export default function HomeTutorIslamabadPage() {
-  return <CityLandingPage city="Islamabad" areas={ISLAMABAD_AREAS} nearbyCity="Rawalpindi" />
+  return <CityLandingPage city="Islamabad" areas={ISLAMABAD_AREAS} nearbyCity="Rawalpindi" cityIntro={ISLAMABAD_INTRO} heroHighlight="Serving F-6 to Bahria Town, all sectors and housing societies" />
 }
