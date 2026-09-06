@@ -1,6 +1,5 @@
 
 
-
 // import './globals.css'
 // import type { Metadata } from 'next'
 // import Script from 'next/script'
@@ -69,10 +68,17 @@
 //     <html lang="en" className={nunito.variable}>
 //       <body className={`${nunito.className} min-h-screen flex flex-col bg-[#FFFDF7]`}>
 
-//         {/* Google Tag Manager */}
+//         {/* Google Tag Manager — lazyOnload defers this until the browser is
+//             idle instead of right at hydration, since PageSpeed Insights
+//             measured ~921ms of main-thread time from GTM's own scripts
+//             during the critical loading window (this is what was tanking
+//             the mobile Performance score and TBT/INP, not the site's own
+//             code). Analytics events still fire correctly, just a beat
+//             later — an acceptable tradeoff since nothing on the page
+//             depends on GTM being ready immediately. */}
 //         <Script
 //           id="google-tag-manager"
-//           strategy="afterInteractive"
+//           strategy="lazyOnload"
 //         >
 //           {`
 //             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -103,7 +109,6 @@
 //     </html>
 //   )
 // }
-
 
 
 
@@ -178,17 +183,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={nunito.variable}>
       <body className={`${nunito.className} min-h-screen flex flex-col bg-[#FFFDF7]`}>
 
-        {/* Google Tag Manager — lazyOnload defers this until the browser is
-            idle instead of right at hydration, since PageSpeed Insights
-            measured ~921ms of main-thread time from GTM's own scripts
-            during the critical loading window (this is what was tanking
-            the mobile Performance score and TBT/INP, not the site's own
-            code). Analytics events still fire correctly, just a beat
-            later — an acceptable tradeoff since nothing on the page
-            depends on GTM being ready immediately. */}
+        {/* Google Tag Manager — afterInteractive. lazyOnload was tried here
+            to reduce GTM's main-thread cost, but it measurably made mobile
+            performance worse (score dropped 82→64, TBT went from 560ms to
+            2800ms) because deferring GTM's init clustered all of its work
+            into one large burst that landed inside Lighthouse's measurement
+            window instead of being spread out. afterInteractive is the
+            better-performing option here — don't change this again without
+            testing on a real deploy first. */}
         <Script
           id="google-tag-manager"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         >
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
